@@ -1,4 +1,4 @@
-package com.jonas.bio;
+package com.jonas.pbio;
 
 import java.io.BufferedReader;
 import java.io.IOException;
