@@ -1,4 +1,4 @@
-package com.jonas.netty.exception;
+package com.jonas.netty.fixedlength.delimiterbased;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,15 +8,20 @@ import io.netty.channel.EventLoopGroup;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
+import io.netty.handler.logging.LogLevel;
+import io.netty.handler.logging.LoggingHandler;
 
 /**
+ * 使用FixedLengthFrameDecoder解决半包问题
  * TimeServer
  *
  * @author shenjy
  * @version 1.0
  * @date 2020-03-20
  */
-public class TimeServer2 {
+public class EchoServer {
     public void bind(int port) {
         /**
          * NioEventLoopGroup包含一组NIO线程，专门用于网络事件的处理，实际上就是Reactor线程组。
@@ -31,12 +36,14 @@ public class TimeServer2 {
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    //
                     .option(ChannelOption.SO_BACKLOG, 1024)
+                    .handler(new LoggingHandler(LogLevel.INFO))
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new TimeServerHandler2());
+                            ch.pipeline().addLast(new FixedLengthFrameDecoder(20));
+                            ch.pipeline().addLast(new StringDecoder());
+                            ch.pipeline().addLast(new EchoServerHandler());
                         }
                     });
             //绑定端口，同步等待成功
@@ -53,6 +60,6 @@ public class TimeServer2 {
     }
 
     public static void main(String[] args) {
-        new TimeServer2().bind(8080);
+        new EchoServer().bind(8080);
     }
 }

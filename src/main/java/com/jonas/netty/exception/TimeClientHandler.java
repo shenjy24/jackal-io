@@ -14,14 +14,14 @@ import java.util.logging.Logger;
  * @version 1.0
  * @date 2020-03-20
  */
-public class TimeClientHandler2 extends ChannelHandlerAdapter {
+public class TimeClientHandler extends ChannelHandlerAdapter {
 
-    private static final Logger logger = Logger.getLogger(TimeClientHandler2.class.getName());
+    private static final Logger logger = Logger.getLogger(TimeClientHandler.class.getName());
 
     private int counter;
     private byte[] req;
 
-    public TimeClientHandler2() {
+    public TimeClientHandler() {
         req = ("QUERY TIME ORDER" + System.getProperty("line.separator")).getBytes();
     }
 

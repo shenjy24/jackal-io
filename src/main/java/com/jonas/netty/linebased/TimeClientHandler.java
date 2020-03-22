@@ -1,4 +1,4 @@
-package com.jonas.netty.normal;
+package com.jonas.netty.linebased;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -14,15 +14,15 @@ import java.util.logging.Logger;
  * @version 1.0
  * @date 2020-03-20
  */
-public class TimeClientHandler3 extends ChannelHandlerAdapter {
+public class TimeClientHandler extends ChannelHandlerAdapter {
 
-    private static final Logger logger = Logger.getLogger(TimeClientHandler3.class.getName());
+    private static final Logger logger = Logger.getLogger(TimeClientHandler.class.getName());
 
     private int counter;
     private byte[] req;
     private String separator = System.getProperty("line.separator");
 
-    public TimeClientHandler3() {
+    public TimeClientHandler() {
         req = ("QUERY TIME ORDER" + separator).getBytes();
     }
 

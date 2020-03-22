@@ -1,4 +1,4 @@
-package com.jonas.netty.normal;
+package com.jonas.netty.linebased;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -11,17 +11,15 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.handler.codec.LineBasedFrameDecoder;
 import io.netty.handler.codec.string.StringDecoder;
 
-import javax.sound.sampled.Line;
-
 /**
- * 解决半包问题
+ * 使用LineBasedFrameDecoder解决半包问题
  * TimeServer
  *
  * @author shenjy
  * @version 1.0
  * @date 2020-03-20
  */
-public class TimeServer3 {
+public class TimeServer {
     public void bind(int port) {
         /**
          * NioEventLoopGroup包含一组NIO线程，专门用于网络事件的处理，实际上就是Reactor线程组。
@@ -43,7 +41,7 @@ public class TimeServer3 {
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(new LineBasedFrameDecoder(1024));
                             ch.pipeline().addLast(new StringDecoder());
-                            ch.pipeline().addLast(new TimeServerHandler3());
+                            ch.pipeline().addLast(new TimeServerHandler());
                         }
                     });
             //绑定端口，同步等待成功
@@ -60,6 +58,6 @@ public class TimeServer3 {
     }
 
     public static void main(String[] args) {
-        new TimeServer3().bind(8080);
+        new TimeServer().bind(8080);
     }
 }

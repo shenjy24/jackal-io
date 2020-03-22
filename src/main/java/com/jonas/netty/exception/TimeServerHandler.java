@@ -1,4 +1,4 @@
-package com.jonas.netty.normal;
+package com.jonas.netty.exception;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -8,20 +8,24 @@ import io.netty.channel.ChannelHandlerContext;
 import java.util.Date;
 
 /**
+ * 模拟TCP粘包导致功能异常
  * TimeServerHandler
  *
  * @author shenjy
  * @version 1.0
  * @date 2020-03-20
  */
-public class TimeServerHandler3 extends ChannelHandlerAdapter {
+public class TimeServerHandler extends ChannelHandlerAdapter {
 
     private int counter;
     private String separator = System.getProperty("line.separator");
 
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
-        String body = (String) msg;
+        ByteBuf buf = (ByteBuf) msg;
+        byte[] req = new byte[buf.readableBytes()];
+        buf.readBytes(req);
+        String body = new String(req, "UTF-8").substring(0, req.length - separator.length());
         System.out.println("The time server receive order : " + body + " ; the counter is : " + ++counter);
         String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date(System.currentTimeMillis()).toString() : "BAD ORDER";
         currentTime += separator;
