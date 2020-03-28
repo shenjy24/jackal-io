@@ -1,4 +1,4 @@
-package com.jonas.encode;
+package com.jonas.codec;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -1,4 +1,4 @@
-package com.jonas.encode.messagepack;
+package com.jonas.codec.messagepack;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.channel.ChannelHandlerContext;

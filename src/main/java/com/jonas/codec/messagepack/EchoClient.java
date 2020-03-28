@@ -1,4 +1,4 @@
-package com.jonas.encode.messagepack;
+package com.jonas.codec.messagepack;
 
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;

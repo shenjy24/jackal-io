@@ -1,4 +1,4 @@
-package com.jonas.encode;
+package com.jonas.codec;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 import java.nio.ByteBuffer;
 
 /**
- * Test
+ * 测试JDK序列化码流和性能
  *
  * @author shenjy
  * @version 1.0
