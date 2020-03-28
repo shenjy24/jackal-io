@@ -1,7 +1,7 @@
 package com.jonas.codec.protobuf.test;
 
 import com.google.protobuf.InvalidProtocolBufferException;
-import com.jonas.codec.protobuf.SubscribeReqProto;
+import com.jonas.codec.protobuf.proto.SubscribeReqProto;
 
 /**
  * TestSubscribeReqProto
