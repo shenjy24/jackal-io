@@ -94,6 +94,7 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
             response.headers().set(CONNECTION, KEEP_ALIVE);
         }
         ctx.write(response);
+        //将文件写入到发送缓冲区中
         ChannelFuture sendFileFuture = ctx.write(new ChunkedFile(randomAccessFile, 0, fileLength, 8192), ctx.newProgressivePromise());
         sendFileFuture.addListener(new ChannelProgressiveFutureListener() {
             @Override
@@ -110,7 +111,9 @@ public class HttpFileServerHandler extends SimpleChannelInboundHandler<FullHttpR
                 System.out.println("Transfer complete");
             }
         });
+        //使用chunked编码，最后需要发送一个编码结束的空消息体，将LastHttpContent的EMPTY_LAST_CONTENT发送到缓冲区中，标识所有的消息体已经发送完成
         ChannelFuture lastContentFuture = ctx.writeAndFlush(LastHttpContent.EMPTY_LAST_CONTENT);
+        //如果是非Keep-Alive，最后一个包发送完成之后，服务端要主动关闭连接
         if (!isKeepAlive(request)) {
             lastContentFuture.addListener(ChannelFutureListener.CLOSE);
         }
