@@ -1,4 +1,4 @@
-package com.jonas.netty.fixedlength.delimiterbased;
+package com.jonas.netty.fixedlength;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
