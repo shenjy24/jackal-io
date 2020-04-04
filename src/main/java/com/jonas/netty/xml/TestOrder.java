@@ -1,6 +1,5 @@
 package com.jonas.netty.xml;
 
-import com.jonas.netty.xml.pojo.Customer;
 import com.jonas.netty.xml.pojo.Order;
 import com.jonas.netty.xml.pojo.OrderFactory;
 import org.jibx.runtime.*;

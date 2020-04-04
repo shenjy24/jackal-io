@@ -19,6 +19,7 @@ public class HttpXmlRequestEncoder extends AbstractHttpXmlEncoder<HttpXmlRequest
 
     @Override
     protected void encode(ChannelHandlerContext ctx, HttpXmlRequest msg, List<Object> out) throws Exception {
+        //通过JiBX序列化为XML字符串
         ByteBuf body = encode0(ctx, msg.getBody());
         FullHttpRequest request = msg.getRequest();
         if (null == request) {
