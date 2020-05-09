@@ -27,10 +27,13 @@ public class TimeServer {
         try {
             //ServerBootstrap用于启动NIO服务端的辅助启动类
             ServerBootstrap bootstrap = new ServerBootstrap();
+            //设置group和childGroup
             bootstrap.group(bossGroup, workerGroup)
+                    //设置channelFactory
                     .channel(NioServerSocketChannel.class)
-                    //
+                    //设置参数
                     .option(ChannelOption.SO_BACKLOG, 1024)
+                    //设置childHandler
                     .childHandler(new ChildChannelHandler());
             //绑定端口，同步等待成功
             ChannelFuture future = bootstrap.bind(port).sync();
