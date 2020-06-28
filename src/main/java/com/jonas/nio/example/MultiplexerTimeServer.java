@@ -1,4 +1,4 @@
-package com.jonas.nio;
+package com.jonas.nio.example;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
