@@ -6,6 +6,7 @@ import java.net.URL;
 import java.nio.ByteBuffer;
 import java.nio.MappedByteBuffer;
 import java.nio.channels.FileChannel;
+import java.nio.charset.StandardCharsets;
 
 /**
  * @author shenjy
@@ -61,15 +62,15 @@ public class MMapDemo {
             MappedByteBuffer buffer = channel.map(FileChannel.MapMode.READ_ONLY, 0, len);
 
             byte[] bytes = new byte[1024];
-            StringBuffer content = new StringBuffer();
+            StringBuilder content = new StringBuilder();
             for (int offset = 0; offset < len; offset += 1024) {
                 if (len - offset > 1024) {
                     buffer.get(bytes);
-                    content.append(new String(bytes, "UTF-8"));
+                    content.append(new String(bytes, StandardCharsets.UTF_8));
                 } else {
                     byte[] leftBytes = new byte[len - offset];
                     buffer.get(leftBytes);
-                    content.append(new String(leftBytes, "UTF-8"));
+                    content.append(new String(leftBytes, StandardCharsets.UTF_8));
                 }
             }
 
