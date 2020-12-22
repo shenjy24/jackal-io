@@ -1,4 +1,4 @@
-package com.jonas.codec.serializable;
+package com.jonas.netty.codec.serializable;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

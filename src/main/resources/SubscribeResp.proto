@@ -1,6 +1,6 @@
 syntax = "proto2";
 package netty;
-option java_package = "com.jonas.codec.protobuf";
+option java_package = "com.jonas.netty.codec.protobuf";
 option java_outer_classname = "SubscribeRespProto";
 
 message SubscribeResp{

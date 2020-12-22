@@ -1,11 +1,8 @@
-package com.jonas.codec.protobuf;
+package com.jonas.netty.codec.protobuf;
 
-import com.jonas.codec.protobuf.proto.SubscribeReqProto;
-import io.netty.channel.ChannelHandler;
+import com.jonas.netty.codec.protobuf.proto.SubscribeReqProto;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
-import io.netty.channel.ChannelHandlerInvoker;
-import io.netty.util.concurrent.EventExecutorGroup;
 
 /**
  * SubReqClientHandler

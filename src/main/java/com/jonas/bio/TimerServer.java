@@ -36,7 +36,6 @@ public class TimerServer {
                 System.out.println("The time server close");
                 try {
                     server.close();
-                    server = null;
                 } catch (IOException e) {
                     e.printStackTrace();
                 }

@@ -1,4 +1,4 @@
-package com.jonas.codec.serializable;
+package com.jonas.netty.codec.serializable;
 
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;

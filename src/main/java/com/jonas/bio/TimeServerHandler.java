@@ -48,7 +48,6 @@ public class TimeServerHandler implements Runnable {
             }
             if (null != out) {
                 out.close();
-                out = null;
             }
             if (null != socket) {
                 try {

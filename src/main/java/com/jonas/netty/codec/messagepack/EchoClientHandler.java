@@ -1,6 +1,6 @@
-package com.jonas.codec.messagepack;
+package com.jonas.netty.codec.messagepack;
 
-import com.jonas.codec.serializable.User;
+import com.jonas.netty.codec.serializable.User;
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
 

@@ -1,4 +1,4 @@
-package com.jonas.codec.marshalling;
+package com.jonas.netty.codec.marshalling;
 
 import io.netty.handler.codec.marshalling.*;
 import org.jboss.marshalling.MarshallerFactory;

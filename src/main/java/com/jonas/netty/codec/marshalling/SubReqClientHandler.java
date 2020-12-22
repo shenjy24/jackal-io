@@ -1,4 +1,4 @@
-package com.jonas.codec.marshalling;
+package com.jonas.netty.codec.marshalling;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;

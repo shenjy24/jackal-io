@@ -1,4 +1,4 @@
-package com.jonas.codec.marshalling;
+package com.jonas.netty.codec.marshalling;
 
 import java.io.Serializable;
 
