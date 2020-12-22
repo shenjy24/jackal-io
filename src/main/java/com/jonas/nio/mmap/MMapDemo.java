@@ -39,7 +39,7 @@ public class MMapDemo {
                 buff.flip();
                 byte[] bytes = new byte[buff.remaining()];
                 buff.get(bytes);
-                content.append(new String(bytes, "UTF-8"));
+                content.append(new String(bytes, StandardCharsets.UTF_8));
                 //为写入做准备
                 buff.clear();
             }
@@ -73,7 +73,6 @@ public class MMapDemo {
                     content.append(new String(leftBytes, StandardCharsets.UTF_8));
                 }
             }
-
             System.out.println("mmap cost: " + (System.currentTimeMillis() - begin));
         } finally {
             if (null != randomAccessFile) {
