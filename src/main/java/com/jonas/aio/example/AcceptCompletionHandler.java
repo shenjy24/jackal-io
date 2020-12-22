@@ -1,4 +1,4 @@
-package com.jonas.aio;
+package com.jonas.aio.example;
 
 import java.nio.ByteBuffer;
 import java.nio.channels.AsynchronousSocketChannel;

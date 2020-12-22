@@ -1,4 +1,4 @@
-package com.jonas.aio;
+package com.jonas.aio.example;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

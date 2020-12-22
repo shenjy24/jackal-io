@@ -1,4 +1,4 @@
-package com.jonas.aio;
+package com.jonas.aio.example;
 
 /**
  * TimeServer
@@ -10,8 +10,7 @@ package com.jonas.aio;
 public class TimeServer {
 
     public static void main(String[] args) {
-        TimeServer timeServer = new TimeServer();
-        timeServer.startServer(8080);
+        new TimeServer().startServer(8080);
     }
 
     public void startServer(int port) {

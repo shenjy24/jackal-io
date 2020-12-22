@@ -1,4 +1,4 @@
-package com.jonas.aio;
+package com.jonas.aio.example;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
@@ -19,9 +19,7 @@ public class ReadCompletionHandler implements CompletionHandler<Integer, ByteBuf
     private AsynchronousSocketChannel socketChannel;
 
     public ReadCompletionHandler(AsynchronousSocketChannel socketChannel) {
-        if (null == this.socketChannel) {
-            this.socketChannel = socketChannel;
-        }
+        this.socketChannel = socketChannel;
     }
 
     @Override
