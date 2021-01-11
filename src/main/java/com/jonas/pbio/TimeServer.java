@@ -43,7 +43,6 @@ public class TimeServer {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                server = null;
             }
         }
     }

@@ -42,7 +42,6 @@ public class TimeClient {
         } finally {
             if (null != out) {
                 out.close();
-                out = null;
             }
             if (null != in) {
                 try {
@@ -50,7 +49,6 @@ public class TimeClient {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                in = null;
             }
             if (null != socket) {
                 try {
@@ -58,7 +56,6 @@ public class TimeClient {
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
-                socket = null;
             }
         }
     }
