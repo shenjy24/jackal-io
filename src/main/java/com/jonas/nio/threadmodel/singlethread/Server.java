@@ -1,7 +1,7 @@
 package com.jonas.nio.threadmodel.singlethread;
 
 /**
- * Server
+ * Reactor单线程模型Server
  * 参考资料：https://www.cnblogs.com/hama1993/p/10611229.html
  *
  * @author shenjy
