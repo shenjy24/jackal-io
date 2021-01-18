@@ -15,7 +15,7 @@ import java.util.concurrent.Executors;
 
 public class ChatServer {
 
-    static List<AsynchronousSocketChannel> channelList = new ArrayList<>();
+    private static List<AsynchronousSocketChannel> channelList = new ArrayList<>();
 
     public void start(int port) {
         try {
@@ -29,7 +29,7 @@ public class ChatServer {
             //使用CompletionHandler接收来自客户端的连接请求(回调)
             serverChannel.accept(null, new AcceptHandler(serverChannel));
             // 主线程继续自己的行为
-            Thread.sleep(50000);
+            Thread.sleep(5000);
         } catch (IOException | InterruptedException e) {
             e.printStackTrace();
         }
