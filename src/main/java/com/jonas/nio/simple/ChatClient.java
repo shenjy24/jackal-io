@@ -54,12 +54,12 @@ public class ChatClient {
                         selector.selectedKeys().remove(sk);
                         if (sk.isReadable()) {
                             SocketChannel sc = (SocketChannel) sk.channel();
-                            ByteBuffer buffer = ByteBuffer.allocate(1024);
+                            ByteBuffer buffer = ByteBuffer.allocate(8);
                             StringBuilder content = new StringBuilder();
                             while (sc.read(buffer) > 0) {
-                                sc.read(buffer);
                                 buffer.flip();
                                 content.append(charset.decode(buffer));
+                                buffer.clear();
                             }
                             System.out.println("聊天信息：" + content);
                             sk.interestOps(SelectionKey.OP_READ);
