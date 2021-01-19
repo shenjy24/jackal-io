@@ -52,12 +52,13 @@ public class ChatServer {
                 if (sk.isReadable()) {
                     //获取该SelectionKey对应的Channel，该Channel中有可读的数据
                     SocketChannel socketChannel = (SocketChannel) sk.channel();
-                    ByteBuffer buffer = ByteBuffer.allocate(1024);
+                    ByteBuffer buffer = ByteBuffer.allocate(8);
                     StringBuilder content = new StringBuilder();
                     try {
                         while (socketChannel.read(buffer) > 0) {
                             buffer.flip();
                             content.append(charset.decode(buffer));
+                            buffer.clear();
                         }
                         System.out.println("读取的数据:" + content);
                         sk.interestOps(SelectionKey.OP_READ);
