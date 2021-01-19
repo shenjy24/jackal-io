@@ -1,4 +1,4 @@
-package com.jonas.nio.threadmodel.singlethread;
+package com.jonas.nio.threadmodel.client;
 
 /**
  * Client
@@ -9,6 +9,7 @@ package com.jonas.nio.threadmodel.singlethread;
  */
 public class Client {
     public static void main(String[] args) {
+        new Thread(new ClientReactor("127.0.0.1", 3000)).start();
         new Thread(new ClientReactor("127.0.0.1", 3000)).start();
     }
 }

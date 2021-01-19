@@ -1,4 +1,4 @@
-package com.jonas.nio.threadmodel.singlethread;
+package com.jonas.nio.threadmodel.client;
 
 import lombok.SneakyThrows;
 
