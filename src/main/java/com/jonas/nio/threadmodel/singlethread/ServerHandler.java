@@ -1,7 +1,5 @@
 package com.jonas.nio.threadmodel.singlethread;
 
-import lombok.SneakyThrows;
-
 import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.channels.SelectionKey;
