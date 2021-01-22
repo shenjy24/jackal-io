@@ -7,9 +7,11 @@ import java.util.Iterator;
 import java.util.Set;
 
 /**
+ * ServerReactor负责处理读写操作
+ *
  * @author shenjy
- * @date 2021/1/21
- * @description 处理读写操作的Reactor
+ * @version 1.0
+ * @date 2021-01-22
  */
 public class ServerSubReactor implements Runnable {
 
@@ -26,7 +28,7 @@ public class ServerSubReactor implements Runnable {
     public void run() {
         try {
             while (!Thread.interrupted()) {
-                System.out.printf("%d号SubReactor等待注册中", num);
+                System.out.printf("%d号SubReactor等待注册中%n", num);
                 while (!Thread.interrupted() && !register) {
                     if (0 < selector.select()) {
                         Set<SelectionKey> selectionKeys = selector.selectedKeys();

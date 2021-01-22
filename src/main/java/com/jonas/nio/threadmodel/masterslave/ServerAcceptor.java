@@ -39,7 +39,7 @@ public class ServerAcceptor implements Runnable {
         try {
             socketChannel = serverSocketChannel.accept(); // 连接
             if (null != socketChannel) {
-                System.out.printf("收到来自 %s 的连接%n", socketChannel.getRemoteAddress());
+                System.out.printf("收到来自%s的连接%n", socketChannel.getRemoteAddress());
                 socketChannel.configureBlocking(false);
                 serverSubReactors[next].registering(true); // 注意一个selector在select时是无法注册新事件的，因此这里要先暂停下select方法触发的程序段，下面的wakeup和这里的setRestart都是做这个事情的，具体参考SubReactor里的run方法
                 selectors[next].wakeup(); // 使一個阻塞住的selector操作立即返回
