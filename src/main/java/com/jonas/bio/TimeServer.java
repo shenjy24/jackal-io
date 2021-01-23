@@ -11,10 +11,10 @@ import java.net.Socket;
  * @version 1.0
  * @date 2020-03-15
  */
-public class TimerServer {
+public class TimeServer {
 
     public static void main(String[] args) {
-        new TimerServer().startServer(8080);
+        new TimeServer().startServer(8080);
     }
 
     public void startServer(int port) {
@@ -32,7 +32,7 @@ public class TimerServer {
         } catch (IOException e) {
             e.printStackTrace();
         } finally {
-            if (null == server) {
+            if (null != server) {
                 System.out.println("The time server close");
                 try {
                     server.close();
