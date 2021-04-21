@@ -31,11 +31,14 @@ public class TestServer {
             ServerBootstrap bootstrap = new ServerBootstrap();
             bootstrap.group(bossGroup, workerGroup)
                     .channel(NioServerSocketChannel.class)
-                    //
                     .option(ChannelOption.SO_BACKLOG, 1024)
                     .childHandler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
+                            ch.pipeline().addLast(new MyInboundHandler());
+                            ch.pipeline().addLast(new MyInboundHandler2());
+                            ch.pipeline().addLast(new MyOutboundHandler());
+                            ch.pipeline().addLast(new MyOutboundHandler2());
                             ch.pipeline().addLast(new TestServerHandler());
                         }
                     });

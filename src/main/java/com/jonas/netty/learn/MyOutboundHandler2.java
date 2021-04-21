@@ -2,6 +2,7 @@ package com.jonas.netty.learn;
 
 import io.netty.channel.ChannelHandlerAdapter;
 import io.netty.channel.ChannelHandlerContext;
+import io.netty.channel.ChannelPromise;
 
 /**
  * MyInboundHandler
@@ -12,8 +13,8 @@ import io.netty.channel.ChannelHandlerContext;
  */
 public class MyOutboundHandler2 extends ChannelHandlerAdapter {
     @Override
-    public void read(ChannelHandlerContext ctx) throws Exception {
+    public void write(ChannelHandlerContext ctx, Object msg, ChannelPromise promise) throws Exception {
         System.out.println("MyOutbound2:" + Thread.currentThread().getName());
-        ctx.read();
+        ctx.write(msg);
     }
 }

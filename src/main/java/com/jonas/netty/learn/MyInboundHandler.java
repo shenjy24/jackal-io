@@ -13,7 +13,7 @@ import io.netty.channel.ChannelHandlerContext;
 public class MyInboundHandler extends ChannelHandlerAdapter {
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("MyInbound:Connected!");
+        System.out.println("MyInbound:" + Thread.currentThread().getName());
         ctx.fireChannelActive();
     }
 }

@@ -28,11 +28,7 @@ public class TestClient {
                     .handler(new ChannelInitializer<SocketChannel>() {
                         @Override
                         protected void initChannel(SocketChannel ch) throws Exception {
-                            ch.pipeline().addLast(new MyInboundHandler());
-                            ch.pipeline().addLast(new MyInboundHandler2());
                             ch.pipeline().addLast(new NioEventLoopGroup(), new TestClientHandler());
-                            ch.pipeline().addLast(new MyOutboundHandler());
-                            ch.pipeline().addLast(new MyOutboundHandler2());
                         }
                     });
             //发起异步连接操作

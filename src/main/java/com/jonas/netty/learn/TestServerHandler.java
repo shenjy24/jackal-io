@@ -25,7 +25,9 @@ public class TestServerHandler extends ChannelHandlerAdapter {
         System.out.println("The time server receive order : " + body);
         String currentTime = "QUERY TIME ORDER".equalsIgnoreCase(body) ? new Date(System.currentTimeMillis()).toString() : "BAD ORDER";
         ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
+        System.out.println("TestServer:" + Thread.currentThread().getName());
         ctx.write(resp);
+        System.out.println("The time server sending completed.");
     }
 
     @Override
