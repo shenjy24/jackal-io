@@ -13,7 +13,7 @@ import io.netty.channel.ChannelHandlerContext;
 public class MyOutboundHandler2 extends ChannelHandlerAdapter {
     @Override
     public void read(ChannelHandlerContext ctx) throws Exception {
-        System.out.println("MyOutbound2:read");
+        System.out.println("MyOutbound2:" + Thread.currentThread().getName());
         ctx.read();
     }
 }

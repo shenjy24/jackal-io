@@ -1,4 +1,4 @@
-package com.jonas.netty;
+package com.jonas.netty.example;
 
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.socket.SocketChannel;
