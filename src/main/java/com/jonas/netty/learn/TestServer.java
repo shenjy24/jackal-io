@@ -37,8 +37,8 @@ public class TestServer {
                         protected void initChannel(SocketChannel ch) throws Exception {
                             ch.pipeline().addLast(new MyInboundHandler());
                             ch.pipeline().addLast(new MyInboundHandler2());
-                            ch.pipeline().addLast(new MyOutboundHandler());
-                            ch.pipeline().addLast(new MyOutboundHandler2());
+                            ch.pipeline().addLast(new NioEventLoopGroup(), new MyOutboundHandler());
+                            ch.pipeline().addLast(new NioEventLoopGroup(), new MyOutboundHandler2());
                             ch.pipeline().addLast(new TestServerHandler());
                         }
                     });

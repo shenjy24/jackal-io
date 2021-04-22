@@ -27,6 +27,7 @@ public class TestServerHandler extends ChannelHandlerAdapter {
         ByteBuf resp = Unpooled.copiedBuffer(currentTime.getBytes());
         System.out.println("TestServer:" + Thread.currentThread().getName());
         ctx.write(resp);
+//        Thread.sleep(1000);
         System.out.println("The time server sending completed.");
     }
 
