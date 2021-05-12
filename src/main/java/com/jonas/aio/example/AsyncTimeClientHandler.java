@@ -35,6 +35,7 @@ public class AsyncTimeClientHandler implements CompletionHandler<Void, AsyncTime
     @Override
     public void run() {
         latch = new CountDownLatch(1);
+        //连接成功会向服务器发送请求
         client.connect(new InetSocketAddress(host, port), this, this);
         try {
             latch.await();

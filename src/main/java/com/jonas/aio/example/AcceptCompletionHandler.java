@@ -14,6 +14,7 @@ import java.nio.channels.CompletionHandler;
 public class AcceptCompletionHandler implements CompletionHandler<AsynchronousSocketChannel, AsyncTimeServerHandler> {
     @Override
     public void completed(AsynchronousSocketChannel result, AsyncTimeServerHandler attachment) {
+        //继续进行监听
         attachment.serverChannel.accept(attachment, this);
         ByteBuffer buffer = ByteBuffer.allocate(1024);
         result.read(buffer, buffer, new ReadCompletionHandler(result));
